@@ -23,7 +23,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       matrix:
-        node-version: [22.11.0]
+        node-version: [ 22.11.0 ]
       fail-fast: false
     steps:
       - name: Checkout Code
@@ -35,6 +35,8 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm install
+      - name: Decode .env
+        run: echo "${{ secrets.BASE64_ENV_FILE }}" | base64 --decode > .env
       - name: Build Application
         run: npm run build
       - name: Setup Pages
