@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 22.11.0 ]
+        node-version: [22.11.0]
       fail-fast: false
     name: Test Node ${{ matrix.node-version }}
     steps:
