@@ -37,7 +37,7 @@ export const CharactersDashboard = () => {
               backgroundColor={stringToColor(
                 character.species?.sort()?.join(''),
               )}
-              imageSrc={`https://picsum.photos/200`}
+              imageSrc={`https://picsum.photos/seed/${Math.ceil(Math.random() * 10_000_000)}/200/200`}
               onClick={() => {
                 setCharacterData(character);
                 setPlanetId(extractPlanetIdFromURL(character.homeworld));
