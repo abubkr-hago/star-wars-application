@@ -74,13 +74,19 @@ export const CharactersDashboard = () => {
           )
         ))}
       <div className='flex justify-between items-center'>
-        <button onClick={() => setPage((p) => Math.max(1, p - 1))}>
+        <button
+          onClick={() => setPage((p) => Math.max(1, p - 1))}
+          disabled={page <= 1}
+        >
           Previous
         </button>
         <span className='text-gray-600' style={{ margin: '4rem' }}>
           Page {page} of {totalPages}
         </span>
-        <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))}>
+        <button
+          onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+          disabled={page >= totalPages}
+        >
           Next
         </button>
       </div>
